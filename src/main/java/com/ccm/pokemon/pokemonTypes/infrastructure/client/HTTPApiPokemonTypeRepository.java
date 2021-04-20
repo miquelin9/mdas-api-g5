@@ -4,7 +4,8 @@ import com.ccm.pokemon.pokemonTypes.domain.exceptions.NetworkConnectionException
 import com.ccm.pokemon.pokemonTypes.domain.exceptions.TimeoutException;
 import com.ccm.pokemon.pokemonTypes.domain.exceptions.PokemonNotFoundException;
 import com.ccm.pokemon.pokemonTypes.domain.exceptions.UnknownException;
-import com.ccm.pokemon.pokemonTypes.domain.interfaces.PokemonTypeGetterInterface;
+import com.ccm.pokemon.pokemonTypes.domain.interfaces.PokemonTypeRepository;
+import com.ccm.pokemon.pokemonTypes.domain.valueObjects.Name;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -23,13 +24,13 @@ import java.net.UnknownHostException;
 
 @ApplicationScoped
 @Named("Http")
-public class PokemonTypeGetterClient implements PokemonTypeGetterInterface {
+public class HTTPApiPokemonTypeRepository implements PokemonTypeRepository {
 
     private static final String HOST_ENDPOINT = "https://pokeapi.co/api/v2/pokemon/";
     private static final double TIMEOUT = 3;
 
     @Override
-    public JSONObject getPokemonTypeJsonByPokemonName(String pokemonName) throws PokemonNotFoundException, TimeoutException, NetworkConnectionException, UnknownException {
+    public JSONObject find(Name pokemonName) throws PokemonNotFoundException, TimeoutException, NetworkConnectionException, UnknownException {
         CloseableHttpClient client = HttpClients.createDefault();
         HttpGet request = new HttpGet(HOST_ENDPOINT + pokemonName);
         RequestConfig.Builder requestConfig = RequestConfig.custom();

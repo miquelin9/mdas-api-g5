@@ -3,8 +3,9 @@ import com.ccm.pokemon.pokemonTypes.domain.aggregate.PokemonType;
 import com.ccm.pokemon.pokemonTypes.domain.exceptions.NetworkConnectionException;
 import com.ccm.pokemon.pokemonTypes.domain.exceptions.PokemonNotFoundException;
 import com.ccm.pokemon.pokemonTypes.domain.exceptions.TimeoutException;
+import com.ccm.pokemon.pokemonTypes.domain.valueObjects.Name;
 import com.ccm.pokemon.pokemonTypes.infrastructure.parser.JsonPokemonTypeParser;
-import com.ccm.pokemon.pokemonTypes.infrastructure.client.PokemonTypeGetterClient;
+import com.ccm.pokemon.pokemonTypes.infrastructure.client.HTTPApiPokemonTypeRepository;
 import io.quarkus.runtime.QuarkusApplication;
 import io.quarkus.runtime.annotations.QuarkusMain;
 import org.json.simple.JSONObject;
@@ -21,7 +22,7 @@ public class Application implements QuarkusApplication {
     public int run (String... args) {
 
         String pokemonName = "";
-        PokemonTypeGetterClient pokemonTypeGetterClient = new PokemonTypeGetterClient();
+        HTTPApiPokemonTypeRepository pokemonTypeGetterClient = new HTTPApiPokemonTypeRepository();
         JsonPokemonTypeParser pokemonTypeParser = new JsonPokemonTypeParser();
         BufferedReader reader = new BufferedReader(
                 new InputStreamReader(System.in)
@@ -36,7 +37,7 @@ public class Application implements QuarkusApplication {
 
         while (!pokemonName.equals("exit")) {
             try {
-                JSONObject pokemonJson = pokemonTypeGetterClient.getPokemonTypeJsonByPokemonName(pokemonName);
+                JSONObject pokemonJson = pokemonTypeGetterClient.find(new Name(pokemonName));
                 List<PokemonType> pokemonTypeList = pokemonTypeParser.toPokemonTypeList(pokemonJson);
                 System.out.println(pokemonTypeList.toString());
             } catch (PokemonNotFoundException | TimeoutException | NetworkConnectionException e) {
