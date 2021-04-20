@@ -1,6 +1,5 @@
 package com.ccm.pokemon.pokemonTypes.infrastructure.client;
 
-import com.ccm.pokemon.pokemonTypes.domain.aggregate.PokemonType;
 import com.ccm.pokemon.pokemonTypes.domain.exceptions.PokemonNotFoundException;
 import com.ccm.pokemon.pokemonTypes.domain.interfaces.PokemonTypeGetterInterface;
 import org.apache.http.HttpEntity;
@@ -9,16 +8,12 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 @ApplicationScoped
 @Named("Http")

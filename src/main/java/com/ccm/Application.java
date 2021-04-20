@@ -3,7 +3,6 @@ import com.ccm.pokemon.pokemonTypes.domain.aggregate.PokemonType;
 import com.ccm.pokemon.pokemonTypes.domain.exceptions.PokemonNotFoundException;
 import com.ccm.pokemon.pokemonTypes.infrastructure.parser.JsonPokemonTypeParser;
 import com.ccm.pokemon.pokemonTypes.infrastructure.client.PokemonTypeGetterClient;
-import io.quarkus.runtime.Quarkus;
 import io.quarkus.runtime.QuarkusApplication;
 import io.quarkus.runtime.annotations.QuarkusMain;
 import org.json.simple.JSONObject;
