@@ -78,11 +78,13 @@ Explicado en "Separación correcta de capas"
 OK
 
 #### Se aplica el patrón repositorio
-Explicado en "Separación correcta de capas"
+Explicado en "Separación correcta de capas". Este reto fue planteado hasta la sesión 3,
+y dado que el patrón repository no se explicó hasta la sesión 4, este punto no es penalizable,
+únicamente os lo dejo por aquí como anotación
 
 **Error principal: ¡No hay servicios de dominio y se tratan datos de infra en dominio!**
 
-**Puntuación: 10/40**
+**Puntuación: 15/40**
 
 ## Facilidad setup + README (20%)
 #### El README contiene al menos los apartados "cómo ejecutar la aplicación", "cómo user la aplicación"
@@ -107,4 +109,4 @@ como podría ser `PokemonTypes`. "First Class Citizens".
   
 - ¿Por qué rabbitmq en el `build.gradle`?
 
-**PUNTUACIÓN FINAL: 58/100**
+**PUNTUACIÓN FINAL: 63/100**
