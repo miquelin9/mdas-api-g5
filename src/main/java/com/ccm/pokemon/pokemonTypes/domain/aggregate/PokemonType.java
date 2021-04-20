@@ -2,7 +2,6 @@ package com.ccm.pokemon.pokemonTypes.domain.aggregate;
 
 import com.ccm.pokemon.pokemonTypes.domain.valueObjects.Name;
 import com.ccm.pokemon.pokemonTypes.domain.valueObjects.PokemonId;
-import org.json.simple.JSONObject;
 
 public class PokemonType {
 
