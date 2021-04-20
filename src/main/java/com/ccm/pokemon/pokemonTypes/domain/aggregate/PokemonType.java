@@ -20,10 +20,7 @@ public class PokemonType {
 
     @Override
     public String toString() {
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("name", this.name);
-        jsonObject.put("id", this.pokemonId);
-        return jsonObject.toJSONString();
+        return this.name.toString();
     }
 
 

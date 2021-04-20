@@ -1,6 +1,8 @@
 package com.ccm;
 import com.ccm.pokemon.pokemonTypes.domain.aggregate.PokemonType;
+import com.ccm.pokemon.pokemonTypes.domain.exceptions.NetworkConnectionException;
 import com.ccm.pokemon.pokemonTypes.domain.exceptions.PokemonNotFoundException;
+import com.ccm.pokemon.pokemonTypes.domain.exceptions.TimeoutException;
 import com.ccm.pokemon.pokemonTypes.infrastructure.parser.JsonPokemonTypeParser;
 import com.ccm.pokemon.pokemonTypes.infrastructure.client.PokemonTypeGetterClient;
 import io.quarkus.runtime.QuarkusApplication;
@@ -37,12 +39,17 @@ public class Application implements QuarkusApplication {
                 JSONObject pokemonJson = pokemonTypeGetterClient.getPokemonTypeJsonByPokemonName(pokemonName);
                 List<PokemonType> pokemonTypeList = pokemonTypeParser.toPokemonTypeList(pokemonJson);
                 System.out.println(pokemonTypeList.toString());
-                System.out.println("Type a Pokemon name:");
-                pokemonName = reader.readLine();
-            } catch (PokemonNotFoundException e) {
+            } catch (PokemonNotFoundException | TimeoutException | NetworkConnectionException e) {
                 System.out.println(e.getMessage());
             } catch (Exception e) {
                 System.out.println("Unexpected error. " + e.getMessage());
+            }
+
+            System.out.println("Type a Pokemon name:");
+            try {
+                pokemonName = reader.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
 
