@@ -1,5 +1,7 @@
 package com.ccm.user.user.domain;
 
+import java.util.Objects;
+
 public class UserName {
 
     public UserName(String name) {
@@ -15,4 +17,13 @@ public class UserName {
     }
 
     private String name;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserName userName = (UserName) o;
+        return Objects.equals(name, userName.name);
+    }
+
 }

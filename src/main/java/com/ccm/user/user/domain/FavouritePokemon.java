@@ -9,4 +9,8 @@ public class FavouritePokemon {
     }
 
     private FavouritePokemonId favouritePokemonId;
+
+    public FavouritePokemonId getFavouritePokemonId() {
+        return favouritePokemonId;
+    }
 }

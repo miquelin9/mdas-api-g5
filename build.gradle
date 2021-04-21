@@ -17,7 +17,6 @@ dependencies {
     implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1'
     testImplementation 'io.quarkus:quarkus-junit5'
     testImplementation 'io.rest-assured:rest-assured'
-    compile 'com.rabbitmq:amqp-client:5.10.0'
 }
 
 group 'com.ccm'
