@@ -24,7 +24,7 @@ public class FavouritePokemons {
         FavouritePokemonId pokemonId = pokemon.getFavouritePokemonId();
 
         if (favouritePokemonList.stream().anyMatch(favouritePokemon -> favouritePokemon.getFavouritePokemonId().equals(pokemonId))) {
-            throw new FavouritePokemonAlreadyExistsException("The user already has the pokemon " + pokemonId + " as favourite");
+            throw new FavouritePokemonAlreadyExistsException("The user already has the pokemon " + pokemonId.getPokemonId() + " as favourite");
         }
     }
 

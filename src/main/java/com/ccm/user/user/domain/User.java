@@ -21,6 +21,10 @@ public class User {
         return name;
     }
 
+    public FavouritePokemons getFavouritePokemons() {
+        return favouritePokemons;
+    }
+
     public void addFavouritePokemon(FavouritePokemon pokemon) throws FavouritePokemonAlreadyExistsException {
         this.favouritePokemons.addFavouritePokemonToList(pokemon);
     }
