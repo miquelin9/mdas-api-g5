@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 @QuarkusTest
 public class AddUserUseCaseTest {
     @Inject
@@ -19,13 +21,34 @@ public class AddUserUseCaseTest {
 
     @Test
     public void shouldCreatAUser() throws UserAlreadyExistsException {
-        UserDTO user = new UserDTO("alberto",1);
+        UserDTO userDTO = new UserDTO("alberto",1);
+        User user = new User(userDTO.getName(), userDTO.getUserId());
 
-        addUserUseCase.createUser(user);
+        if (userRepository.exists(user.getUserId())) {
+            userRepository.delete(user);
+        }
 
-        User retrievedUser = userRepository.find(new UserId(1));
-        Assertions.assertTrue(userRepository.exists(new UserId(user.getUserId())));
-        Assertions.assertEquals(new UserId(user.getUserId()), retrievedUser.getUserId());
-        Assertions.assertEquals(new UserName(user.getName()), retrievedUser.getName());
+        addUserUseCase.createUser(userDTO);
+
+        User retrievedUser = userRepository.find(user.getUserId());
+        assertTrue(userRepository.exists(user.getUserId()));
+        assertEquals(user.getUserId(), retrievedUser.getUserId());
+        assertEquals(user.getName(), retrievedUser.getName());
+    }
+
+    @Test
+    public void shouldThrowUserAlreadyExistsException() throws UserAlreadyExistsException {
+        UserDTO userDTO = new UserDTO("alberto",1);
+        User user = new User(userDTO.getName(), userDTO.getUserId());
+
+        if (userRepository.exists(user.getUserId())) {
+            userRepository.delete(user);
+        }
+
+        addUserUseCase.createUser(userDTO);
+
+        Exception exception = assertThrows(UserAlreadyExistsException.class, () -> {
+            addUserUseCase.createUser(userDTO);
+        });
     }
 }

@@ -28,4 +28,8 @@ public class User {
     public void addFavouritePokemon(FavouritePokemon pokemon) throws FavouritePokemonAlreadyExistsException {
         this.favouritePokemons.addFavouritePokemonToList(pokemon);
     }
+
+    public void removeFavouritePokemon(FavouritePokemon pokemon) throws FavouritePokemonDoesNotExistException {
+        this.favouritePokemons.removeFavouritePokemonFromList(pokemon);
+    }
 }

@@ -59,6 +59,9 @@ public class InMemoryUserRepository implements UserRepository {
 
     @Override
     public void delete(User user) {
-        inMemoryUsers.remove(user);
+        OptionalInt index = IntStream.range(0, inMemoryUsers.size())
+                .filter(i -> user.getUserId().equals(inMemoryUsers.get(i).getUserId()))
+                .findFirst();
+        inMemoryUsers.remove(index.getAsInt());
     }
 }
