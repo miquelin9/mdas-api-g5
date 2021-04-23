@@ -66,10 +66,11 @@ Se recomienda parar la aplicación pulsando la combinación de teclas CTRL+C en 
 2) Será necesario hacer 1 petición a esta URL para crear un usuario: http://localhost:8081/user/addUser/?name=alberto&userId=1  
     2.1 En lugar de alberto se puede elegir cualquier otro nombre para el usuario  
     2.2 En lugar de 1 se puede elegir cualquier otro identificador para el usuario
-3) La URL para añadir pokemon favoritos es la siguiente: http://localhost:8081/user/addFavouritePokemon/?id=6
-    3.1 En lugar de 6 se puede elegir cualquier otro identificador que insertar
-
-
+3) La URL para añadir pokemon favoritos es la siguiente: http://localhost:8081/user/addFavouritePokemon/?id=6  
+    3.1 En lugar de 6 se puede elegir cualquier otro identificador que insertar  
+    3.2 Advertencia: el header param que representa al id del usuario puede que se añada de forma distinta según la
+        herramienta elegida para hacer las peticiones
+   
 ## Ejecutar los test unitarios
 
 A pesar de que los test unitarios se ejecutan en el momento de ejecutar el comando `./gradlew build`, también se pueden  
