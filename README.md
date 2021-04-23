@@ -40,3 +40,8 @@ La aplicación se puede usar de dos maneras:
 2) Suponiendo que se usan comandos de terminal como "curl"  
    2.1) Ejecutar curl http://localhost:8081/pokemon/types?name=charizard  
    2.2) En lugar de charizard, se puede escribir en nombre de cualquier otro Pokémon
+
+## Ejecutar los test unitarios
+
+A pesar de que los test unitarios se ejecutan en el momento de ejecutar el comando `./gradlew build`, también se pueden  
+ejecutar mediante el comando `./gradlew cleanTest test`.

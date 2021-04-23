@@ -10,26 +10,45 @@ import com.ccm.user.user.infrastructure.InMemoryUserRepository;
 import io.quarkus.test.junit.QuarkusMock;
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 import org.mockito.Mockito;
 
 import javax.inject.Inject;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.*;
+
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @QuarkusTest
 public class UserFinderTest {
     @Inject
-    UserFinder userFinder;
+    UserFinder tested;
 
     @Test
-    public void shouldFindUser() throws UserNotFoundException {
+    public void verify_findUser_callsToMethods() throws UserNotFoundException {
         UserId userId = new UserId(1);
         UserName userName = new UserName("keko");
         User user = new User(userName, userId);
 
-        UserRepository userRepository = Mockito.mock(InMemoryUserRepository.class);
+        UserRepository userRepository = mock(InMemoryUserRepository.class);
         Mockito.when(userRepository.find(userId)).thenReturn(user);
         Mockito.when(userRepository.exists(userId)).thenReturn(true);
         QuarkusMock.installMockForType(userRepository, UserRepository.class);
 
-        userFinder.findUser(userId);
+        tested.findUser(userId);
+
+        verify(userRepository, times(1)).find(any());
+    }
+
+    @Test
+    public void verify_createUser_throwsUserNotFoundException() {
+        UserId userId = new UserId(1);
+
+        UserRepository userRepository = mock(InMemoryUserRepository.class);
+        doReturn(false).when(userRepository).exists(userId);
+        QuarkusMock.installMockForType(userRepository, UserRepository.class);
+
+        assertThrows(UserNotFoundException.class, () -> {tested.findUser(userId);});
     }
 }
