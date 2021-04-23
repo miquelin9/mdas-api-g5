@@ -9,7 +9,9 @@ import com.ccm.user.user.domain.vo.UserName;
 import com.ccm.user.user.infrastructure.InMemoryUserRepository;
 import io.quarkus.test.junit.QuarkusMock;
 import io.quarkus.test.junit.QuarkusTest;
+import org.junit.Assert;
 import org.junit.Before;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -23,6 +25,8 @@ import javax.inject.Inject;
 
 import java.rmi.UnexpectedException;
 
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -45,13 +49,15 @@ public class UserCreatorTest {
 
     @Test()
     public void verify_createUser_throwsUserAlreadyExistsException_whenUserIsAlreadyCreated() throws UserAlreadyExistsException, UserNotFoundException {
-        User user = mock(User.class);
+        User user = new User(
+            new UserName("keko"),
+            new UserId(1)
+        );
 
         UserRepository userRepository = mock(InMemoryUserRepository.class);
-        Mockito.doThrow(new UserAlreadyExistsException("BlaBla")).when(userRepository).create(user);
+        doReturn(true).when(userRepository).exists(user.getUserId());
         QuarkusMock.installMockForType(userRepository, UserRepository.class);
 
-        tested.createUser(user);
-        Mockito.verify(userRepository, Mockito.times(1)).create(Mockito.any());
+        Assertions.assertThrows(UserAlreadyExistsException.class, () -> {tested.createUser(user);});
     }
 }
