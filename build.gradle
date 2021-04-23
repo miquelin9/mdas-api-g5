@@ -15,6 +15,7 @@ dependencies {
     implementation 'io.quarkus:quarkus-arc'
     implementation 'io.quarkus:quarkus-resteasy'
     implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1'
+    implementation 'junit:junit:4.12'
     testImplementation 'io.quarkus:quarkus-junit5'
     testImplementation 'io.rest-assured:rest-assured'
     testImplementation "org.mockito:mockito-core:3.+"
