@@ -1,4 +1,4 @@
-# Reto Pokémon
+# Reto Pokémon (PARTE 1, recuperación de tipos de un pokémon)
 
 ## Pre-requisitos
 
@@ -40,6 +40,35 @@ La aplicación se puede usar de dos maneras:
 2) Suponiendo que se usan comandos de terminal como "curl"  
    2.1) Ejecutar curl http://localhost:8081/pokemon/types?name=charizard  
    2.2) En lugar de charizard, se puede escribir en nombre de cualquier otro Pokémon
+
+# Reto Pokémon (PARTE 2, gestión de pokémon favoritos de un usuario)
+
+## Pre-requisitos
+
+* Tener Java 11 instalado
+* Comprobar los permisos del fichero gradlew (este fichero se encuentra en la raíz del proyecto, y es lo que se emplea para lanzar la aplicación).
+  Es muy probable que la terminal muestre que no tenemos permisos para ejecutarlo, por lo que habrá que cambiarlos mediante `chmod u+x gradlew`
+* Tener algún programa como Postman (la parte de la API no es necesario probarla con Postman, pero este tipo de programas hace que dicha labor sea más sencilla por la interfaz visual de este tipo de aplicaciones como Postman)
+
+## Puesta en marcha
+
+1) Para asegurar que partimos de un proyecto fresco, ejecutar `./gradlew clean`
+2) Para construir la aplicación, ejecutar `./gradlew build`
+3) Para lanzar la aplicación, ejecutar `java -jar build/mdas-api-g5-1.0-SNAPSHOT-runner.jar`
+
+## Parar la aplicación
+
+Se recomienda parar la aplicación pulsando la combinación de teclas CTRL+C en la consola donde se lanzó el fichero JAR.
+
+## Probar la aplicación (desde programas tipo Postman)
+
+1) Será necesario crear una nueva petición de tipo GET  
+2) Será necesario hacer 1 petición a esta URL para crear un usuario: http://localhost:8081/user/addUser/?name=alberto&userId=1  
+    2.1 En lugar de alberto se puede elegir cualquier otro nombre para el usuario  
+    2.2 En lugar de 1 se puede elegir cualquier otro identificador para el usuario
+3) La URL para añadir pokemon favoritos es la siguiente: http://localhost:8081/user/addFavouritePokemon/?id=6
+    3.1 En lugar de 6 se puede elegir cualquier otro identificador que insertar
+
 
 ## Ejecutar los test unitarios
 
