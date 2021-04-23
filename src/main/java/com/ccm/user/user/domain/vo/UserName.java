@@ -1,4 +1,4 @@
-package com.ccm.user.user.domain;
+package com.ccm.user.user.domain.vo;
 
 import java.util.Objects;
 

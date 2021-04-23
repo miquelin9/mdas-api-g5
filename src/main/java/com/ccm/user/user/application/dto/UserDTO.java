@@ -1,4 +1,4 @@
-package com.ccm.user.user.application;
+package com.ccm.user.user.application.dto;
 
 public class UserDTO {
     private String name;

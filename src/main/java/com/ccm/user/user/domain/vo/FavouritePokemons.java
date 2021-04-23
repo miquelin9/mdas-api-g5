@@ -1,4 +1,8 @@
-package com.ccm.user.user.domain;
+package com.ccm.user.user.domain.vo;
+
+import com.ccm.user.user.domain.entities.FavouritePokemon;
+import com.ccm.user.user.domain.exceptions.FavouritePokemonAlreadyExistsException;
+import com.ccm.user.user.domain.exceptions.FavouritePokemonDoesNotExistException;
 
 import java.util.ArrayList;
 import java.util.List;

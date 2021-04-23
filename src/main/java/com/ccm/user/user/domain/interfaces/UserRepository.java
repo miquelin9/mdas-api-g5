@@ -1,4 +1,8 @@
-package com.ccm.user.user.domain;
+package com.ccm.user.user.domain.interfaces;
+
+import com.ccm.user.user.domain.aggregate.User;
+import com.ccm.user.user.domain.vo.UserId;
+import com.ccm.user.user.domain.vo.UserName;
 
 import java.util.List;
 

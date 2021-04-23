@@ -1,18 +1,15 @@
 package com.ccm.user.user.infrastructure;
 
-import com.ccm.user.user.domain.User;
-import com.ccm.user.user.domain.UserId;
-import com.ccm.user.user.domain.UserName;
-import com.ccm.user.user.domain.UserRepository;
+import com.ccm.user.user.domain.aggregate.User;
+import com.ccm.user.user.domain.vo.UserId;
+import com.ccm.user.user.domain.vo.UserName;
+import com.ccm.user.user.domain.interfaces.UserRepository;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
-import java.awt.event.ItemEvent;
-import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.OptionalInt;
-import java.util.logging.XMLFormatter;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 

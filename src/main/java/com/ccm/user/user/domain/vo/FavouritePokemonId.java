@@ -1,6 +1,4 @@
-package com.ccm.user.user.domain;
-
-import java.util.Objects;
+package com.ccm.user.user.domain.vo;
 
 public class FavouritePokemonId {
 

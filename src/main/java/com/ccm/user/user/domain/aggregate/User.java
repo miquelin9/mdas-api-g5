@@ -1,11 +1,18 @@
-package com.ccm.user.user.domain;
+package com.ccm.user.user.domain.aggregate;
+
+import com.ccm.user.user.domain.entities.FavouritePokemon;
+import com.ccm.user.user.domain.vo.FavouritePokemons;
+import com.ccm.user.user.domain.vo.UserId;
+import com.ccm.user.user.domain.vo.UserName;
+import com.ccm.user.user.domain.exceptions.FavouritePokemonAlreadyExistsException;
+import com.ccm.user.user.domain.exceptions.FavouritePokemonDoesNotExistException;
 
 public class User {
 
 
-    public User(String name, int userId) {
-        this.name = new UserName(name);
-        this.userId = new UserId(userId);
+    public User(UserName name, UserId userId) {
+        this.name = name;
+        this.userId = userId;
         this.favouritePokemons = new FavouritePokemons();
     }
 

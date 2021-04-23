@@ -1,6 +1,4 @@
-package com.ccm.user.user.domain;
-
-import java.util.Objects;
+package com.ccm.user.user.domain.vo;
 
 public class UserId {
 
@@ -9,6 +7,10 @@ public class UserId {
     }
 
     private int userId;
+
+    public int getUserId() {
+        return userId;
+    }
 
     @Override
     public String toString() {

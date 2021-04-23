@@ -1,6 +1,6 @@
-package com.ccm.user.user.domain;
+package com.ccm.user.user.domain.entities;
 
-import com.ccm.pokemon.pokemonTypes.domain.valueObjects.PokemonId;
+import com.ccm.user.user.domain.vo.FavouritePokemonId;
 
 import java.util.Objects;
 
