@@ -61,4 +61,9 @@ public class InMemoryUserRepository implements UserRepository {
                 .findFirst();
         inMemoryUsers.remove(index.getAsInt());
     }
+
+    @Override
+    public void deleteAll() {
+        inMemoryUsers.clear();
+    }
 }
