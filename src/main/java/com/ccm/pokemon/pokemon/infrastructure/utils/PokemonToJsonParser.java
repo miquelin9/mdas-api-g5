@@ -12,7 +12,7 @@ public class PokemonToJsonParser {
 
         resultPokemon.put("id", pokemon.getPokemonId().getPokemonId());
         resultPokemon.put("name", pokemon.getName().getName());
-        resultPokemon.put("")
+        resultPokemon.put("types", pokemon.getPokemonTypes());
         
         return resultPokemon.toJSONString();
     }
