@@ -5,13 +5,14 @@ import com.ccm.pokemon.pokemon.application.useCases.GetPokemonUseCase;
 import com.ccm.pokemon.pokemon.domain.aggregate.Pokemon;
 import com.ccm.pokemon.pokemon.domain.exceptions.NetworkConnectionException;
 import com.ccm.pokemon.pokemon.domain.exceptions.TimeoutException;
-import com.ccm.pokemon.pokemon.infrastructure.utils.PokemonToJsonParser;
+import com.ccm.pokemon.pokemon.infrastructure.parsers.PokemonToJsonParser;
 import com.ccm.pokemon.pokemonTypes.domain.exceptions.PokemonNotFoundException;
 
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
 
@@ -23,10 +24,9 @@ public class PokemonController {
     @Inject
     PokemonToJsonParser pokemonToJsonParser;
 
-
     @GET
-    @Path("/types")
-    public Response getTypes(@QueryParam("id") Integer id) {
+    @Path("/get/{id}")
+    public Response getPokemon(@PathParam("id") int id) {
         try {
             Pokemon result = getPokemonUseCase.getPokemonByPokemonId(new PokemonDto(id));
 

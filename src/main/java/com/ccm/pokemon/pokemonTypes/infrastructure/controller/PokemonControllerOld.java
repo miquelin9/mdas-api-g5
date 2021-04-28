@@ -11,7 +11,7 @@ import javax.ws.rs.QueryParam;
 
 @Model
 @Path("/pokemon")
-public class PokemonController {
+public class PokemonControllerOld {
 
     @Inject
     GetPokemonTypeUseCase getPokemonTypeUseCase;

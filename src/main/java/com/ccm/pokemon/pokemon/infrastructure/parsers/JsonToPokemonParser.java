@@ -1,4 +1,4 @@
-package com.ccm.pokemon.pokemon.infrastructure.utils;
+package com.ccm.pokemon.pokemon.infrastructure.parsers;
 
 import com.ccm.pokemon.pokemon.domain.aggregate.Pokemon;
 import com.ccm.pokemon.pokemon.domain.valueObjects.Name;
