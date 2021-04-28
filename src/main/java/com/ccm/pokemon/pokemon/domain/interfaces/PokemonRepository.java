@@ -7,7 +7,6 @@ import com.ccm.pokemon.pokemon.domain.exceptions.UnknownException;
 import com.ccm.pokemon.pokemon.domain.valueObjects.PokemonId;
 import com.ccm.pokemon.pokemonTypes.domain.exceptions.PokemonNotFoundException;
 
-
 public interface PokemonRepository {
 
     public Pokemon find(PokemonId pokemonId) throws PokemonNotFoundException, TimeoutException, NetworkConnectionException, UnknownException;

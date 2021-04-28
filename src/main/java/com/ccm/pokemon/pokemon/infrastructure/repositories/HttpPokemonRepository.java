@@ -62,7 +62,9 @@ public class HttpPokemonRepository implements PokemonRepository {
         } catch (UnknownHostException e) {
             throw new NetworkConnectionException("Unable to reach specified host (maybe the network is down)");
         } catch (Exception e) {
-            throw new UnknownException("There was some unknown problem while processing the request to the external API");
+            e.printStackTrace();
+//            throw new UnknownException("There was some unknown problem while processing the request to the external API");
         }
+        return null;
     }
 }

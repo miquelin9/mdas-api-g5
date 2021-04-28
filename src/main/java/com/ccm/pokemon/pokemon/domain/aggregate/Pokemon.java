@@ -4,7 +4,6 @@ import com.ccm.pokemon.pokemon.domain.valueObjects.Name;
 import com.ccm.pokemon.pokemon.domain.valueObjects.PokemonId;
 import com.ccm.pokemon.pokemon.domain.valueObjects.PokemonType;
 import com.ccm.pokemon.pokemon.domain.valueObjects.PokemonTypes;
-import org.json.simple.JSONObject;
 
 public class Pokemon {
 

@@ -10,6 +10,10 @@ public class PokemonTypes {
         this.pokemonTypes = new ArrayList<>();
     }
 
+    public List<PokemonType> getPokemonTypes() {
+        return this.pokemonTypes;
+    }
+
     public void addType(PokemonType pokemonType) {
         pokemonTypes.add(pokemonType);
     }
