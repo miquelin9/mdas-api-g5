@@ -52,7 +52,7 @@ public class HttpPokemonRepository implements PokemonRepository {
             JSONParser parser = new JSONParser();
             String str = EntityUtils.toString(entity);
             if (str.equals("Not Found")) {
-                throw new PokemonNotFoundException("Pokemon '" + pokemonId + "' not found");
+                throw new PokemonNotFoundException("Pokemon '" + pokemonId.getPokemonId() + "' not found");
             }
 
             JSONObject pokemonResponse = (JSONObject) parser.parse(str);
