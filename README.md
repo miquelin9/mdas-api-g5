@@ -103,5 +103,5 @@ Se recomienda parar la aplicación pulsando la combinación de teclas CTRL+C en 
 
 ## Ejecutar los test
 
-A pesar de que los test unitarios se ejecutan en el momento de ejecutar el comando `./gradlew build`, también se pueden  
+A pesar de que los test unitarios se ejecutan en el momento de ejecutar el comando `./gradlew build`, también se pueden 
 ejecutar mediante el comando `./gradlew cleanTest test`.
