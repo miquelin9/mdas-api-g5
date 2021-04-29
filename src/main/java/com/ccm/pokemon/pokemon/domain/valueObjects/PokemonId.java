@@ -1,5 +1,7 @@
 package com.ccm.pokemon.pokemon.domain.valueObjects;
 
+import java.util.Objects;
+
 public class PokemonId {
 
     public PokemonId(int pokemonId) {
@@ -10,5 +12,13 @@ public class PokemonId {
 
     public int getPokemonId() {
         return pokemonId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PokemonId pokemonId1 = (PokemonId) o;
+        return pokemonId == pokemonId1.pokemonId;
     }
 }

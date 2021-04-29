@@ -7,7 +7,7 @@ import com.ccm.pokemon.pokemon.domain.exceptions.UnknownException;
 import com.ccm.pokemon.pokemon.domain.interfaces.PokemonRepository;
 import com.ccm.pokemon.pokemon.domain.valueObjects.PokemonId;
 import com.ccm.pokemon.pokemon.infrastructure.parsers.JsonToPokemonParser;
-import com.ccm.pokemon.pokemonTypes.domain.exceptions.PokemonNotFoundException;
+import com.ccm.pokemon.pokemon.domain.exceptions.PokemonNotFoundException;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -51,7 +51,7 @@ public class HttpPokemonRepository implements PokemonRepository {
 
             JSONParser parser = new JSONParser();
             String str = EntityUtils.toString(entity);
-            if (str.equals("Not found")) {
+            if (str.equals("Not Found")) {
                 throw new PokemonNotFoundException("Pokemon '" + pokemonId + "' not found");
             }
 
@@ -61,10 +61,10 @@ public class HttpPokemonRepository implements PokemonRepository {
             throw new TimeoutException("Timeout period expired. Response took too long to arrive");
         } catch (UnknownHostException e) {
             throw new NetworkConnectionException("Unable to reach specified host (maybe the network is down)");
+        } catch (PokemonNotFoundException e) {
+            throw e;
         } catch (Exception e) {
-            e.printStackTrace();
-//            throw new UnknownException("There was some unknown problem while processing the request to the external API");
+            throw new UnknownException("There was some unknown problem while processing the request to the external API");
         }
-        return null;
     }
 }

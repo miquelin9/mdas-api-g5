@@ -5,6 +5,8 @@ import com.ccm.pokemon.pokemon.domain.valueObjects.PokemonId;
 import com.ccm.pokemon.pokemon.domain.valueObjects.PokemonType;
 import com.ccm.pokemon.pokemon.domain.valueObjects.PokemonTypes;
 
+import java.util.Objects;
+
 public class Pokemon {
 
     public Pokemon(Name name, PokemonId pokemonId) {
@@ -31,5 +33,13 @@ public class Pokemon {
 
     public void addPokemonType(PokemonType pokemonType) {
         this.pokemonTypes.addType(pokemonType);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Pokemon pokemon = (Pokemon) o;
+        return name.equals(pokemon.name) && pokemonId.equals(pokemon.pokemonId) && pokemonTypes.equals(pokemon.pokemonTypes);
     }
 }

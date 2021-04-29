@@ -100,3 +100,8 @@ Se recomienda parar la aplicación pulsando la combinación de teclas CTRL+C en 
 1) Será necesario crear una nueva petición de tipo GET
 2) Será necesario hacer 1 petición a esta URL para obtener la información de un Pokémon: http://localhost:8081/pokemon/get/123  
    2.1 En lugar de 123 se puede elegir cualquier otro id en función del Pokémon que se desee recuperar  
+
+## Ejecutar los test
+
+A pesar de que los test unitarios se ejecutan en el momento de ejecutar el comando `./gradlew build`, también se pueden  
+ejecutar mediante el comando `./gradlew cleanTest test`.

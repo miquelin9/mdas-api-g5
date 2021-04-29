@@ -6,7 +6,7 @@ import com.ccm.pokemon.pokemon.domain.exceptions.TimeoutException;
 import com.ccm.pokemon.pokemon.domain.exceptions.UnknownException;
 import com.ccm.pokemon.pokemon.domain.interfaces.PokemonRepository;
 import com.ccm.pokemon.pokemon.domain.valueObjects.PokemonId;
-import com.ccm.pokemon.pokemonTypes.domain.exceptions.PokemonNotFoundException;
+import com.ccm.pokemon.pokemon.domain.exceptions.PokemonNotFoundException;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
