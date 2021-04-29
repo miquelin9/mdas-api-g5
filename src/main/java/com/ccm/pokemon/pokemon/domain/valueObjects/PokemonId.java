@@ -1,7 +1,5 @@
 package com.ccm.pokemon.pokemon.domain.valueObjects;
 
-import java.util.Objects;
-
 public class PokemonId {
 
     public PokemonId(int pokemonId) {
